@@ -1,0 +1,19 @@
+﻿@using BeatsShop.DAL.DomainModels
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject SignInManager<User> SignInManager
+
+@if(SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Logout">Logout</a>
+    </li>
+}
+else
+{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    </ul>
+}

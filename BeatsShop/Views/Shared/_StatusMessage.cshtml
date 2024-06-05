@@ -1,0 +1,10 @@
+﻿@model BeatsShop.Models.BaseModel?
+
+@if (!string.IsNullOrWhiteSpace(Model?.StatusMessage))
+{
+    var statusMessageClass = Model.IsSuccess ? "success" : "danger";
+    <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
+        <i class="fas fa-info-circle me-3"></i>
+        @Model.StatusMessage
+    </div>
+}

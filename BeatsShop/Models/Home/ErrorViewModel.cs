@@ -1,4 +1,4 @@
-namespace BeatsShop.Models;
+namespace BeatsShop.Models.Home;
 
 public class ErrorViewModel
 {

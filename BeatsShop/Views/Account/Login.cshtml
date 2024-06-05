@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model BeatsShop.Models.Account.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="login-page">
+
+    <div class="page-header text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <partial name="_StatusMessage" model="Model"/>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <section>
+                <form asp-route="Login" class="row g-3 needs-validation" novalidate>
+                    <hr class="mb-4"/>
+
+                    <div class="col-md-12">
+                        <div class="form-outline">
+                            <input asp-for="UserName" class="form-control" autofocus autocomplete="on" required/>
+                            <label class="form-label" asp-for="UserName"></label>
+                            <div class="invalid-feedback">The UserName field is required.</div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-outline">
+                            <input type="password" asp-for="Password" class="form-control" required autocomplete="off"/>
+                            <label class="form-label" asp-for="Password"></label>
+                            <div class="invalid-feedback">The Password field is required.</div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" asp-for="RememberLogin" checked/>
+                                    <label class="form-check-label" asp-for="RememberLogin"> @Html.DisplayNameFor(m => m.RememberLogin) </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                    </div>
+                </form>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>
+                        Not a member? <a asp-controller="Account" asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
